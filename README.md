@@ -49,4 +49,4 @@ For local install, give any groupId. Issue `mvn clean install`
 
 Create a new Mule project and select create project from template, select this template and start building your API implementation.
 
-Also view the readme.txt file that explains how to use template
+Also view the getting-started.md file that explains how to use template
