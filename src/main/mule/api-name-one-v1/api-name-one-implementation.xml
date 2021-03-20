@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
+	<flow name="api-name-one-ping-implementation-flow" doc:id="7fcbb799-5b9d-4d52-886e-5c619dce2ec6">
+		
+		<json-logger:logger doc:name="flow start" doc:id="2e39f162-ff4e-4ead-b44c-6b5d1cf91aec" config-ref="JSON_Logger_Config" message='#["start of ping impl flow"]' />
+		 <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+		            <ee:message>
+		                <ee:set-payload><![CDATA[%dw 2.0
+		output application/json
+		---
+		{
+		  name: "api-name-one-v1",
+		  timestamp: "2021-03-18T12:12:12Z",
+		  status: "OK"
+		}]]></ee:set-payload>
+		            </ee:message>
+		        </ee:transform>
+		<json-logger:logger doc:name="flow end" doc:id="8712bcd7-e166-468c-bcaf-b3b6e13dd91f" config-ref="JSON_Logger_Config" message='#["end of ping impl flow"]' tracePoint="END"/>
+	
+		
+</flow>
+	</mule>

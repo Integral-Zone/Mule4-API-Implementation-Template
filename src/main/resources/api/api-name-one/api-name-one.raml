@@ -1,0 +1,30 @@
+#%RAML 1.0
+title: api-name-one
+version: v1
+baseUri: https://api-name-one.cloudhub.io/api/{version}
+mediaType: 
+- application/json
+
+/ping:
+  get:
+    description: ping resource to check health status of the application
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "name":"api-name-one-v1",
+                "timestamp":"2021-03-18T12:12:12Z",
+                "status":"OK"
+              }
+      500:
+        body:
+          application/json:
+            example:
+              {
+                "name":"api-name-one-v1",
+                "timestamp":"2021-03-18T12:12:12Z",
+                "status":"ERROR",
+                "message":"API down"
+              }

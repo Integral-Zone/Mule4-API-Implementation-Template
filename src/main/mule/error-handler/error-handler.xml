@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:error-handler-plugin="http://www.mulesoft.org/schema/mule/error-handler-plugin" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/error-handler-plugin http://www.mulesoft.org/schema/mule/error-handler-plugin/current/mule-error-handler-plugin.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
+	
+	<error-handler name="global-apikit-error-handler" doc:id="20519918-074a-4892-b971-b010a191a805">
+            <on-error-propagate type="ANY" enableNotifications="true" logException="true">
+                <error-handler-plugin:on-error doc:name="Process Error" doc:id="47ed1f76-f019-4d02-9452-86a2a3752f96" config-ref="Error_Handler_Plugin_Config">
+				<error-handler-plugin:custom-errors ><![CDATA[#[${file::dwl/errors/customErrors.dwl}]]]></error-handler-plugin:custom-errors>
+			</error-handler-plugin:on-error>
+			<json-logger:logger doc:name="log error" doc:id="2ad6723a-6753-4c98-b950-209479bccf5c" config-ref="JSON_Logger_Config" message='#["Error occurred"]'/>
+			<ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                    <ee:message>
+                        <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+                    </ee:message>
+                    <ee:variables>
+                        <ee:set-variable variableName="httpStatus"><![CDATA[500]]></ee:set-variable>
+                    </ee:variables>
+                </ee:transform>
+            </on-error-propagate>	
+	</error-handler>
+</mule>
