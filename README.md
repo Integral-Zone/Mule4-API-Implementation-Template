@@ -8,7 +8,7 @@ API Template to serve as a starting point for developers to build applications. 
 
 You may encounter build errors while building the above two due to the plugin used to build the extensions. To fix that, please add below snippet in pom.xml of the extentions:
 
-``
+```
 <pluginRepositories>
     <pluginRepository>
        	<id>mulesoft-releases</id>
@@ -17,7 +17,7 @@ You may encounter build errors while building the above two due to the plugin us
 			<layout>default</layout>
     </pluginRepository>
 </pluginRepositories>
-``
+```
 
 ## Deploying to Exchange
 To deploy to Exchange, run the script named deploy.sh as follows,
@@ -29,6 +29,7 @@ Please ensure that your settings.xml has been configured with the correct Exchan
 ### Maven Setup
 
 1. Please note that the following configuration should be in the settings.xml within your <USER_HOME>/.m2 folder:
+```
 	<!-- HA development wide access to Mule Nexus EE repositories -->
 	<server>
 	    <id>MuleRepository</id>
@@ -41,6 +42,7 @@ Please ensure that your settings.xml has been configured with the correct Exchan
 		<username><ANYPOINT_USER></username>
 		<password><ANYPOINT_PASSWORD></password>
 	</server>
+```
 
 ## Local Install
 For local install, give any groupId. Issue `mvn clean install`
