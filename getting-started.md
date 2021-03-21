@@ -41,3 +41,5 @@ This key shoUld be the key you will use to encrypt your sensitive properties, si
 
 12. Replace munit test cases folders at src/test/munit/<YOUR_API_NAME>-<VERSION>
 
+13. Remove readme.md and getting-started.md and rename application-README.md to README.md
+

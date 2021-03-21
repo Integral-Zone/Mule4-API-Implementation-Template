@@ -20,6 +20,8 @@ You may encounter build errors while building the above two due to the plugin us
 ```
 
 ## Deploying to Exchange
+Get rid of README.md, getting-started.md and rename application-README.md to README.md before publishing to exchange.
+
 To deploy to Exchange, run the script named deploy.sh as follows,
 
 ./deploy.sh <YOUR_ORG_ID>
