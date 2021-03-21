@@ -1,5 +1,5 @@
 %dw 2.0
-import dwl::modules::common as common
+import dwl::common::commonFunctions as common
 output application/json
 ---
 {

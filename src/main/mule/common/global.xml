@@ -25,8 +25,8 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 	<error-handler-plugin:config name="Error_Handler_Plugin_Config" doc:name="Error Handler Plugin Config" doc:id="e47d1a1a-8c3c-46f0-ad0a-d7bc041f9549" />
 	
 
-	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="74c40703-a770-4f57-8915-2f52ca500e3f" applicationName="${api.name}" applicationVersion="${api.version}" environment="${mule.env}" />
-	<api-gateway:autodiscovery apiId="${api.id}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="1b37209f-2570-4bc9-be38-6224e1f3262d" flowRef="api-name-one-main" />
+	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="74c40703-a770-4f57-8915-2f52ca500e3f" applicationName="${api-name-one-v1.name}" applicationVersion="${api-name-one-v1.version}" environment="${mule.env}" />
+	<api-gateway:autodiscovery apiId="${api-name-one-v1.id}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="1b37209f-2570-4bc9-be38-6224e1f3262d" flowRef="api-name-one-main" />
 	
 	
 </mule>
